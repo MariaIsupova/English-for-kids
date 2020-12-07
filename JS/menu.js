@@ -11,7 +11,7 @@ navItem.forEach(item => {
 
     li.addEventListener('click', function () {
         if (a.textContent == "Main page") {
-            window.location.href = '../pages/main.html';
+            window.location.href = '/index.html';
         } else {
             localStorage.setItem("category", a.textContent);
             window.location.href = '../pages/categories.html';
