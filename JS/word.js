@@ -97,9 +97,13 @@ chbox.onchange = function () {
         nav.classList.add('bg-warning')
         nav.classList.remove('bg-info')
 
-        var cardInfo = document.querySelectorAll('.card-body');
+        var cardInfo = document.querySelectorAll('.card-title');
         cardInfo.forEach(card => {
-            card.classList.remove('hide')
+            card.classList.remove('myhide')
+        })
+        var buttons = document.querySelectorAll('.btn-turn');
+        buttons.forEach(element => {
+            element.classList.remove('myhide')
         })
 
         var node = document.querySelector('.mybtn');
@@ -120,12 +124,16 @@ chbox.onchange = function () {
         startBtn.innerText = "Start";
         document.querySelector('.container').appendChild(startBtn);
 
-        var cardInfo = document.querySelectorAll('.card-body');
+        var cardInfo = document.querySelectorAll('.card-title');
         cardInfo.forEach(card => {
-            card.classList.add('hide')
+            card.classList.add('myhide')
+        })
+        var buttons = document.querySelectorAll('.btn-turn');
+        buttons.forEach(element => {
+            element.classList.add('myhide')
         })
 
-
+        sound = false
 
     }
 };

@@ -422,8 +422,9 @@ button:hover{
 
 .card-title{
 font-size: 22px;
+
 }
 
-.hide {
-  opacity: 0;
+.myhide {
+    color: transparent;
 }
