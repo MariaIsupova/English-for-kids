@@ -1,4 +1,8 @@
 const wordList = cards.filter(category => category.name == localStorage.getItem('category'))[0];
+var chbox = document.querySelector('.mode')
+
+var mode = localStorage.getItem('mode')
+// console.log(mode)
 
 function wordCard() {
     wordList.words.forEach(item => {
@@ -32,7 +36,7 @@ function wordCard() {
 
 
         wordComponent.addEventListener('click', function () {
-            if (sound) {
+            if (sound && localStorage.getItem('mode')!='play') {
                 audio = new Audio;
                 audio.src = item.audio;
                 audio.currentTime = 0;
@@ -72,23 +76,16 @@ function wordCard() {
             })
         })
     });
+    condition();
+
 }
 
 wordCard();
 
-
-var chbox = document.querySelector('.mode')
-
-if (localStorage.getItem('mode') == 'play') {
-    var startBtn = document.createElement('a');
-    startBtn.className = 'btn btn-lg info';
-    document.querySelector('.container').appendChild(startBtn);
-}
-
-chbox.onchange = function () {
+function condition(){
     var nav = document.querySelector('.navbar');
     var cardBorder = document.querySelectorAll('.card');
-    if (this.checked) {
+    if (chbox.checked) {
         localStorage.setItem("mode", 'train');
         cardBorder.forEach(el => {
             el.classList.add('border-warning')
@@ -107,7 +104,7 @@ chbox.onchange = function () {
         })
 
         var node = document.querySelector('.mybtn');
-        node.parentNode.removeChild(node);
+        if (node) node.parentNode.removeChild(node);
 
 
     } else {
@@ -137,3 +134,8 @@ chbox.onchange = function () {
 
     }
 };
+
+
+chbox.onchange = function () {
+    condition()
+}
