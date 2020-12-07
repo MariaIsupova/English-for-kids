@@ -1,5 +1,7 @@
 const wordList = cards.filter(category => category.name == localStorage.getItem('category'))[0];
+const audioList = wordList.words.map(item => item.audio);
 var chbox = document.querySelector('.mode')
+
 
 var mode = localStorage.getItem('mode')
 // console.log(mode)
@@ -36,7 +38,7 @@ function wordCard() {
 
 
         wordComponent.addEventListener('click', function () {
-            if (sound && localStorage.getItem('mode')!='play') {
+            if (sound && localStorage.getItem('mode') != 'play') {
                 audio = new Audio;
                 audio.src = item.audio;
                 audio.currentTime = 0;
@@ -82,7 +84,7 @@ function wordCard() {
 
 wordCard();
 
-function condition(){
+function condition() {
     var nav = document.querySelector('.navbar');
     var cardBorder = document.querySelectorAll('.card');
     if (chbox.checked) {
@@ -132,10 +134,28 @@ function condition(){
 
         sound = false
 
+        startBtn.addEventListener('click', function () {
+            startBtn.parentNode.removeChild(startBtn);
+            var repeatBtn = document.createElement('a');
+            repeatBtn.className = 'btn btn-lg blue mybtn';
+            repeatBtn.innerText = "Repeat";
+            document.querySelector('.container').appendChild(repeatBtn);
+            
+
+            var gameAudioList = audioList.sort(function () {
+                return Math.random() - 0.5;
+            });
+            console.log(gameAudioList)
+            audio = new Audio;
+            audio.src = gameAudioList[0];
+            audio.currentTime = 0;
+            audio.play()
+
+        })
+
     }
 };
 
-
 chbox.onchange = function () {
-    condition()
+    condition();
 }

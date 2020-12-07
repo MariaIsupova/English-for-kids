@@ -28,5 +28,4 @@ function createCategories(categories_) {
         })
     });
 }
-
 createCategories(categories);

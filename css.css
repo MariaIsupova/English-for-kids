@@ -324,13 +324,21 @@ body {
     border: 1px solid #ff3939;
     color: #ff3939;
 }
+.btn.blue {
+    border-radius: 0;
+    border: 1px solid #314190;
+    color: #314190;
+}
 
 .btn.red:hover:before {
     background: #ff3939;
-
+}
+.btn.blue:hover:before {
+    background: #314190;
 }
 
-.btn.red:hover {
+.btn.red:hover,
+.btn.blue:hover {
     color: #fff;
 }
 
@@ -423,6 +431,11 @@ button:hover{
 .card-title{
 font-size: 20px;
 
+}
+.mybtn{
+    margin: 20px 0;
+    height: 50px;
+    width: 150px;
 }
 
 .myhide {
