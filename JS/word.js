@@ -141,7 +141,6 @@ function condition() {
             repeatBtn.innerText = "Repeat";
             document.querySelector('.container').appendChild(repeatBtn);
             
-
             var gameAudioList = audioList.sort(function () {
                 return Math.random() - 0.5;
             });
